@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "start": "webpack serve --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
     "git-deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
