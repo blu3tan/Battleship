@@ -12,4 +12,12 @@ describe("Game board class", () => {
     expect(resultBoard[0][0]).toStrictEqual([]);
     expect(resultBoard[9][9]).toStrictEqual([]);
   });
+
+  it("Should have a fleet property", () => {
+    expect(testBoard).toHaveProperty("fleet");
+  });
+
+  it("There should be 6 ships in the fleet", () => {
+    expect(testBoard.fleet).toHaveLength(5);
+  });
 });
