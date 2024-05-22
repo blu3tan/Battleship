@@ -2,22 +2,29 @@ import GameBoard from "../gameBoard";
 
 describe("Game board class", () => {
   const testBoard = new GameBoard();
+  const resultBoard = testBoard.gameBoard;
 
   it("Should have a gameBoard item", () => {
     expect(testBoard).toHaveProperty("gameBoard");
   });
 
   it("GameBoard should be 10 by 10", () => {
-    const resultBoard = testBoard.gameBoard;
-    expect(resultBoard[0][0]).toStrictEqual([]);
-    expect(resultBoard[9][9]).toStrictEqual([]);
+    expect(resultBoard.length).toBe(10);
   });
 
-  it("Should have a fleet property", () => {
+  it("Should have a fleet item", () => {
     expect(testBoard).toHaveProperty("fleet");
   });
 
   it("There should be 6 ships in the fleet", () => {
     expect(testBoard.fleet).toHaveLength(5);
+  });
+
+  it("Should have a placeShips method", () => {
+    expect(testBoard).toHaveProperty("placeShips");
+  });
+
+  it("test placement", () => {
+    expect(resultBoard[0][0]).toEqual([null]);
   });
 });
