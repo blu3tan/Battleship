@@ -1,5 +1,5 @@
-import randomPlaceShip from "./helpers/randomPosition";
 import Ship from "./ship";
+import randomPosition from "./helpers/randomPosition";
 
 export default class GameBoard {
   constructor() {
@@ -31,22 +31,6 @@ export default class GameBoard {
 
     const newFleet = [carrier, battleShip, destroyer, submarine, patrol];
     this.fleet = newFleet;
-  }
-
-  placeShips() {
-    const board = this.gameBoard;
-    const ships = this.fleet;
-
-    const patrol = ships[4];
-    const size = patrol.length;
-    let length = 0;
-    let [row, col] = randomPlaceShip(board, patrol);
-    board[row][col].push("ship");
-    while (length < size) {
-      board[row][col].push("ship");
-      length += 1;
-      col += 1;
-    }
   }
 
   static checkCollision(coordinates, board) {
