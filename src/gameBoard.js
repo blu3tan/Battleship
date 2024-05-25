@@ -1,5 +1,6 @@
 import Ship from "./ship";
 import randomPosition from "./helpers/randomPosition";
+import checkCollision from "./helpers/checkCollision";
 
 export default class GameBoard {
   constructor() {
@@ -31,16 +32,5 @@ export default class GameBoard {
 
     const newFleet = [carrier, battleShip, destroyer, submarine, patrol];
     this.fleet = newFleet;
-  }
-
-  static checkCollision(coordinates, board) {
-    let state = false;
-    coordinates.forEach((element) => {
-      // Compares each generated coord. with the board state
-      // returns true if even one part of the ship overlaps with another
-      const boardPlace = board[element[0]][element[1]];
-      if (boardPlace.length > 0) state = true;
-    });
-    return state;
   }
 }
