@@ -23,4 +23,14 @@ describe("Game board class", () => {
   it("Should have a placeFleet method", () => {
     expect(testBoard).toHaveProperty("placeFleet");
   });
+
+  it("Should have a total of 17 ship cell placed", () => {
+    let result = 0;
+    resultBoard.forEach((row) => {
+      row.forEach((column) => {
+        if (column.length > 0) result += 1;
+      });
+    });
+    expect(result).toBe(17);
+  });
 });
