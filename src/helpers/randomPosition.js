@@ -1,11 +1,14 @@
 export default function randomPosition(length) {
   const verse = Math.floor(Math.random() * 2);
+  // 0 = horizontal / 1 = vertical
 
+  // Generate a random xy coord. for the ship (horizontal)
   if (verse === 0) {
-    // Generate a random xy coord. for the ship (horizontal)
     const direction = 0;
     const positions = [];
     const row = Math.floor(Math.random() * 10);
+
+    // Avoid out of bounds placement
     let col = Math.floor(Math.random() * (11 - length));
     for (let i = 0; i < length; i += 1) {
       positions[i] = [row, col];
