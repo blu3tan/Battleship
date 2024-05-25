@@ -3,25 +3,25 @@ export default function randomPosition(length) {
 
   if (verse === 0) {
     // Generate a random xy coord. for the ship (horizontal)
+    const direction = 0;
     const positions = [];
-    // eslint-disable-next-line prefer-const
-    let row = Math.floor(Math.random() * 10);
+    const row = Math.floor(Math.random() * 10);
     let col = Math.floor(Math.random() * (11 - length));
     for (let i = 0; i < length; i += 1) {
       positions[i] = [row, col];
       col += 1;
     }
-    return positions;
+    return [positions, direction];
   }
 
   // Generate a random xy coord. for the ship (vertical)
+  const direction = 1;
   const positions = [];
   let row = Math.floor(Math.random() * (11 - length));
-  // eslint-disable-next-line prefer-const
-  let col = Math.floor(Math.random() * 10);
+  const col = Math.floor(Math.random() * 10);
   for (let i = 0; i < length; i += 1) {
     positions[i] = [row, col];
     row += 1;
   }
-  return positions;
+  return [positions, direction];
 }
