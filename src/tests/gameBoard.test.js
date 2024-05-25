@@ -20,11 +20,7 @@ describe("Game board class", () => {
     expect(testBoard.fleet).toHaveLength(5);
   });
 
-  it("Should have a placeShips method", () => {
-    expect(testBoard).toHaveProperty("placeShips");
-  });
-
-  it("test placement", () => {
-    expect(resultBoard[0][0]).toEqual([null]);
+  it("Should have a placeFleet method", () => {
+    expect(testBoard).toHaveProperty("placeFleet");
   });
 });

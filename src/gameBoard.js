@@ -8,7 +8,7 @@ export default class GameBoard {
     this.fleet = [];
     this.generateBoard();
     this.generateFleet();
-    this.placeShips();
+    this.placeFleet(this.fleet);
   }
 
   generateBoard() {
@@ -16,7 +16,7 @@ export default class GameBoard {
     for (let i = 0; i <= 9; i += 1) {
       const column = [];
       for (let j = 0; j <= 9; j += 1) {
-        column.push([null]);
+        column.push([]);
       }
       board.push(column);
     }
@@ -32,5 +32,24 @@ export default class GameBoard {
 
     const newFleet = [carrier, battleShip, destroyer, submarine, patrol];
     this.fleet = newFleet;
+  }
+
+  placeFleet(fleet) {
+    fleet.forEach((ship) => this.randomPlaceShip(this.gameBoard, ship.length));
+  }
+
+  randomPlaceShip(board, length) {
+    // Generate a random xy coord. for the ship
+    const [position, direction] = randomPosition(length);
+
+    // Checks if the entire ship can be placed in the board
+    // without overlapping with another
+    const collision = checkCollision(position, direction, board);
+    if (collision) return this.randomPlaceShip(board, length);
+
+    position.forEach((place) => {
+      board[place[0]][place[1]].push(0);
+    });
+    return true;
   }
 }
