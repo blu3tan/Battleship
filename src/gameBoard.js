@@ -52,4 +52,17 @@ export default class GameBoard {
     });
     return true;
   }
+
+  receiveAttack(coordinates, board = this.gameBoard) {
+    const [x, y] = coordinates;
+    const target = board[x][y];
+    if (!target.length) return target.push("-");
+    if (target[0] >= 0 && target[0] < this.fleet.length) {
+      const ship = this.fleet[target[0]];
+      ship.hit();
+      target[0] = "X";
+      console.log(ship);
+    }
+    return false;
+  }
 }

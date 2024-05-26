@@ -33,4 +33,8 @@ describe("Game board class", () => {
     });
     expect(result).toBe(17);
   });
+
+  it("Should have a receiveAttack method", () => {
+    expect(testBoard).toHaveProperty("receiveAttack");
+  });
 });
