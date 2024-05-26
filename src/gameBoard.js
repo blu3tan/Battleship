@@ -61,8 +61,17 @@ export default class GameBoard {
       const ship = this.fleet[target[0]];
       ship.hit();
       target[0] = "X";
-      console.log(ship);
     }
+    return false;
+  }
+
+  checkDefeat(fleet = this.fleet) {
+    let count = 0;
+    fleet.forEach((ship) => {
+      const sunk = ship.isSunk();
+      if (sunk) count += 1;
+    });
+    if (count === fleet.length) return true;
     return false;
   }
 }

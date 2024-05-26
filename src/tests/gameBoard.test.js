@@ -37,4 +37,12 @@ describe("Game board class", () => {
   it("Should have a receiveAttack method", () => {
     expect(testBoard).toHaveProperty("receiveAttack");
   });
+
+  it("Should have a checkDefeat method", () => {
+    expect(testBoard).toHaveProperty("checkDefeat");
+  });
+
+  it("checkDefeat in the beginning should be falsy", () => {
+    expect(testBoard.checkDefeat()).toBe(false);
+  });
 });
