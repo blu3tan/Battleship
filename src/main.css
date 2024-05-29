@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --color-bg: hsl(194, 76%, 46%);
+}
+
+/******************* General reset ********************/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  height: 100dvh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+/******************* Window ********************/
+
+.window {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  position: absolute;
+}
+
+.main,
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px red;
+}
+
+section.window.show {
+  visibility: visible;
+}
+
+.back {
+  z-index: 0;
+  background-color: var(--color-bg);
+}
+
+.title {
+  z-index: 1;
+}
+
+.title-text {
+  background-color: white;
+  height: 100px;
+  width: 90%;
+}
